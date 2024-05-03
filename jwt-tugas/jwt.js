@@ -60,5 +60,5 @@ const activityToken = createTokenKegiatan(jadwalKegiatan);
 console.log('Token Jadwal Kegiatan:', activityToken);
 
 // 4: verif data jadwal
-const decodedKegiatan = verify(activityToken);
+const decodedKegiatan = verify(activityToken);  
 console.log('decodedKegiatan: ', decodedKegiatan);
