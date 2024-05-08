@@ -1,4 +1,4 @@
-const connection = require('./Config/Connection');
+const { connection } = require('../Config/Connection');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
@@ -14,7 +14,7 @@ async function registerUser(name, email, password, phone) {
 
         // kalau tidak ada maka kita boleh buat email tersebut
         const [newUser] = await connection.query(
-            'INSERT INTO user (username, email, password, phone) VALUES (?, ?, ?, ?)',
+            'INSERT INTO user (name, email, password, phone) VALUES (?, ?, ?, ?)',
             [name, email, hashedPassword, phone]
         );
 
@@ -23,9 +23,14 @@ async function registerUser(name, email, password, phone) {
             message: 'User has been created',
             data: newUser
         }
-
     }
     catch (error) {
         throw new Error(error);
     }
 }
+
+// Login
+module.exports = {
+    registerUser
+};
+

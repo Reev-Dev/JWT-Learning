@@ -1,4 +1,4 @@
-const mysql = require('mysql2');
+const mysql = require('mysql2/promise');
 
 const connection = mysql.createPool({
   host: 'localhost',
@@ -11,4 +11,4 @@ const connection = mysql.createPool({
   database: 'bazma_jwt_auth'
 });
 
-module.exports = connection;
+module.exports = { connection };
