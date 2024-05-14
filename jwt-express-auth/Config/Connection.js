@@ -11,4 +11,4 @@ const connection = mysql.createPool({
   database: 'bazma_jwt_auth'
 });
 
-module.exports = { connection };
+module.exports = connection;

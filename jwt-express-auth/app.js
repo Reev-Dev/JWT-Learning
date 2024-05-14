@@ -1,16 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors')
-const app = express();
 
+const app = express();
 app.use(cors())
+
+const PORT = 3000 || process.env.PORT;
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const AuthRoute = require('./Routes/AuthRoute');
 app.use('/api/auth', AuthRoute);
 
-const PORT = 3000 || process.env.PORT;
 
 app.listen(PORT, () => {
     // menjalankan PORT
