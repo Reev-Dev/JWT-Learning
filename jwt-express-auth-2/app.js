@@ -1,22 +1,21 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors')
-const app = express();
 
-// Middleware
+const app = express();
 app.use(cors())
+
+const PORT = 3000 || process.env.PORT;
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Routes
 const AuthRoute = require('./Routes/AuthRoute');
-const TodoRoute = require('./Routes/todoRoute');
 app.use('/api/auth', AuthRoute);
-app.use('/api', TodoRoute);
 
-// Server
-const PORT = 3000 || process.env.PORT;
+
 app.listen(PORT, () => {
     // menjalankan PORT
     console.log(`Server is running on port ${PORT}`);
 });
+
