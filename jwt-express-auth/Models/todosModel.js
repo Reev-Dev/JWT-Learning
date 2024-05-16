@@ -84,7 +84,8 @@ async function updateTodo(todoId, title, description, userId) {
         }
         const result = {
             id: Number(todoId),
-            title: description,
+            title: title,
+            description: description,
             userId
         }
         return {
